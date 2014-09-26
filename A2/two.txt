@@ -1,0 +1,64 @@
+Mementos:0
+ 874
+Mementos:1
+ 57
+Mementos:2
+ 25
+Mementos:3
+ 9
+Mementos:4
+ 1
+Mementos:6
+ 1
+Mementos:8
+ 2
+Mementos:9
+ 1
+Mementos:10
+ 1
+Mementos:11
+ 2
+Mementos:12
+ 1
+Mementos:13
+ 1
+Mementos:14
+ 1
+Mementos:15
+ 1
+Mementos:17
+ 1
+Mementos:20
+ 1
+Mementos:23
+ 1
+Mementos:27
+ 2
+Mementos:30
+ 1
+Mementos:42
+ 2
+Mementos:62
+ 1
+Mementos:64
+ 1
+Mementos:95
+ 1
+Mementos:98
+ 1
+Mementos:119
+ 1
+Mementos:193
+ 1
+Mementos:378
+ 1
+Mementos:498
+ 1
+Mementos:615
+ 1
+Mementos:697
+ 1
+Mementos:972
+ 1
+Mementos:1000
+ 4
