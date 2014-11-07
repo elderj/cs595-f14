@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<head>
+<title>Karate Club Before Split (labelled)</title>
+</head>
+
+<body onclick='window.location.replace("afterL.html");'>
+<h1>Karate Club Before Split</h1>
+<style type="text/css">
+.node {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+.link {
+  stroke: #999;
+  stroke-opacity: .6;
+}
+
+</style>
+<script src="http://d3js.org/d3.v2.min.js?2.9.6"></script>
+<script type="text/javascript">
+var graph = {
+  "nodes":[
+    {"name":"0","group":1},
+    {"name":"1","group":1},
+    {"name":"2","group":1},
+    {"name":"3","group":1},
+    {"name":"4","group":1},
+    {"name":"5","group":1},
+    {"name":"6","group":1},
+    {"name":"7","group":1},
+    {"name":"8","group":1},
+    {"name":"9","group":1},
+    {"name":"10","group":1},
+    {"name":"11","group":1},
+    {"name":"12","group":1},
+    {"name":"13","group":1},
+    {"name":"14","group":1},
+    {"name":"15","group":1},
+    {"name":"16","group":1},
+    {"name":"17","group":1},
+    {"name":"18","group":1},
+    {"name":"19","group":1},
+    {"name":"20","group":1},
+    {"name":"21","group":1},
+    {"name":"22","group":1},
+    {"name":"23","group":1},
+    {"name":"24","group":1},
+    {"name":"25","group":1},
+    {"name":"26","group":1},
+    {"name":"27","group":1},
+    {"name":"28","group":1},
+    {"name":"29","group":1},
+    {"name":"30","group":1},
+    {"name":"31","group":1},
+    {"name":"32","group":1},
+    {"name":"33","group":1}
+  ],
+  "links":[
+{"source":0,"target":1,"value":4},
+    {"source":0,"target":2,"value":5},
+    {"source":0,"target":3,"value":3},
+    {"source":0,"target":4,"value":3},
+    {"source":0,"target":5,"value":3},
+    {"source":0,"target":6,"value":3},
+    {"source":0,"target":7,"value":2},
+    {"source":0,"target":8,"value":2},
+    {"source":0,"target":10,"value":2},
+    {"source":0,"target":11,"value":3},
+    {"source":0,"target":12,"value":1},
+    {"source":0,"target":13,"value":3},
+    {"source":0,"target":17,"value":2},
+    {"source":0,"target":19,"value":2},
+    {"source":0,"target":21,"value":2},
+    {"source":0,"target":31,"value":2},
+    {"source":1,"target":2,"value":6},
+    {"source":1,"target":3,"value":3},
+    {"source":1,"target":7,"value":4},
+    {"source":1,"target":13,"value":5},
+    {"source":1,"target":17,"value":1},
+    {"source":1,"target":19,"value":2},
+    {"source":1,"target":21,"value":2},
+    {"source":1,"target":30,"value":2},
+    {"source":2,"target":3,"value":3},
+    {"source":2,"target":7,"value":4},
+    {"source":2,"target":8,"value":5},
+    {"source":2,"target":9,"value":1},
+    {"source":2,"target":13,"value":3},
+    {"source":2,"target":27,"value":2},
+    {"source":2,"target":28,"value":2},
+    {"source":2,"target":32,"value":2},
+    {"source":3,"target":7,"value":3},
+    {"source":3,"target":12,"value":3},
+    {"source":3,"target":13,"value":3},
+    {"source":4,"target":6,"value":2},
+    {"source":4,"target":10,"value":3},
+    {"source":5,"target":6,"value":5},
+    {"source":5,"target":10,"value":3},
+    {"source":5,"target":16,"value":3},
+    {"source":6,"target":16,"value":3},
+    {"source":8,"target":30,"value":3},
+    {"source":8,"target":32,"value":3},
+    {"source":8,"target":33,"value":4},
+    {"source":9,"target":33,"value":2},
+    {"source":13,"target":33,"value":3},
+    {"source":14,"target":32,"value":3},
+    {"source":14,"target":33,"value":2},
+    {"source":15,"target":32,"value":3},
+    {"source":15,"target":33,"value":4},
+    {"source":18,"target":32,"value":1},
+    {"source":18,"target":33,"value":2},
+    {"source":19,"target":33,"value":1},
+    {"source":20,"target":32,"value":3},
+    {"source":20,"target":33,"value":1},
+    {"source":22,"target":32,"value":2},
+    {"source":22,"target":33,"value":3},
+    {"source":23,"target":25,"value":5},
+    {"source":23,"target":27,"value":4},
+    {"source":23,"target":29,"value":3},
+    {"source":23,"target":32,"value":5},
+    {"source":23,"target":33,"value":4},
+    {"source":24,"target":25,"value":2},
+    {"source":24,"target":27,"value":3},
+    {"source":24,"target":31,"value":2},
+    {"source":25,"target":31,"value":7},
+    {"source":26,"target":29,"value":4},
+    {"source":26,"target":33,"value":2},
+    {"source":27,"target":33,"value":4},
+    {"source":28,"target":31,"value":2},
+    {"source":28,"target":33,"value":2},
+    {"source":29,"target":32,"value":4},
+    {"source":29,"target":33,"value":2},
+    {"source":30,"target":32,"value":3},
+    {"source":30,"target":33,"value":3},
+    {"source":31,"target":32,"value":4},
+    {"source":31,"target":33,"value":4},
+    {"source":32,"target":33,"value":5}
+  ]
+};
+var width = 960,
+    height = 500;
+
+var color = d3.scale.category20();
+
+var force = d3.layout.force()
+    .charge(-150)
+    .linkDistance(88)
+    .size([width, height]);
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+var drawGraph = function(graph) {
+  force
+      .nodes(graph.nodes)
+      .links(graph.links)
+      .start();
+
+  var link = svg.selectAll(".link")
+      .data(graph.links)
+    .enter().append("line")
+      .attr("class", "link")
+      .style("stroke-width", function(d) { return d.value; });
+
+  var gnodes = svg.selectAll('g.gnode')
+     .data(graph.nodes)
+     .enter()
+     .append('g')
+     .classed('gnode', true);
+    
+  var node = gnodes.append("circle")
+      .attr("class", "node")
+      .attr("r", 6)
+      .style("fill", function(d) { return color(d.group); })
+      .call(force.drag);
+
+  var labels = gnodes.append("text")
+      .text(function(d) { return d.name; });
+
+  console.log(labels);
+    
+  force.on("tick", function() {
+    link.attr("x1", function(d) { return d.source.x; })
+        .attr("y1", function(d) { return d.source.y; })
+        .attr("x2", function(d) { return d.target.x; })
+        .attr("y2", function(d) { return d.target.y; });
+
+    gnodes.attr("transform", function(d) { 
+        return 'translate(' + [d.x, d.y] + ')'; 
+    });
+      
+    
+      
+  });
+};
+
+drawGraph(graph);
+
+</script>
+</body>
